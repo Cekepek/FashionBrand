@@ -9,8 +9,8 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nama</th>
-        <th scope="col">Dimension</th>
-        <th scope="col">Price</th>
+        <th scope="col">Dimensi</th>
+        <th scope="col">Harga</th>
       </tr>
     </thead>
     <tbody>
