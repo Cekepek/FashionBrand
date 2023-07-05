@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li class="start ">
-                        <a href="/#">
+                        <a href="/product">
                             <i class="icon-list"></i>
                             <span class="title">Products</span>
                         </a>
@@ -174,10 +174,6 @@
                             <a href="/">Home</a>
                             <i class="fa fa-angle-right"></i>
                         </li>
-                        <li>
-                            <a href="/categories">Categories</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
                     </ul>
                 </div>
                 <!-- END PAGE HEADER-->
@@ -185,6 +181,7 @@
 
                 <!-- BEGIN PAGE CONTENT-->
                 @yield('test')
+                @yield('product')
                 <!-- END PAGE CONTENT-->
             </div>
         </div>
