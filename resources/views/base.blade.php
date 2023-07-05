@@ -10,11 +10,9 @@
     <meta content="" name="author" />
     <meta name="MobileOptimized" content="320">
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-        type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('assets/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -39,7 +37,8 @@
         justify-content: space-between;
         background-color: black;
     }
-    .flex-log{
+
+    .flex-log {
         display: flex;
         flex-direction: row;
         margin: 4px;
@@ -48,12 +47,11 @@
 
 
     }
-    .margin-r{
+
+    .margin-r {
         margin-right: 40px;
     }
-
-
-    </style>
+</style>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 
@@ -64,16 +62,16 @@
         <div class="header-inner">
             <!-- BEGIN LOGO -->
             <div class="flex-container">
-                    <h4 style="color:aqua">Fashion Brand Tranquility</h4>
+                <h4 style="color:aqua">Fashion Brand Tranquility</h4>
                 <div class="flex-log">
                     @guest
-                            @if (Route::has('login'))
-                                <a class="nav-link margin-r" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @endif
+                    @if (Route::has('login'))
+                    <a class="nav-link margin-r" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    @endif
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="">Register</a>
-                            @endif
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="">Register</a>
+                    @endif
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -124,8 +122,7 @@
                         <form class="search-form" role="form" action="index.html" method="get">
                             <div class="input-icon right">
                                 <i class="fa fa-search"></i>
-                                <input type="text" class="form-control input-sm" name="query"
-                                    placeholder="Search...">
+                                <input type="text" class="form-control input-sm" name="query" placeholder="Search...">
                             </div>
                         </form>
                     </li>
@@ -162,8 +159,7 @@
                             <span>
                                 Theme Color </span>
                             <ul>
-                                <li class="color-black current color-default tooltips" data-style="default"
-                                    data-original-title="Default">
+                                <li class="color-black current color-default tooltips" data-style="default" data-original-title="Default">
                                 </li>
                                 <li class="color-grey tooltips" data-style="grey" data-original-title="Grey">
                                 </li>
@@ -262,8 +258,7 @@
     <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
     <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"
-        type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
