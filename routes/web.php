@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,12 @@ Route::get('/test', function () {
     return view('base');
 });
 
+Route::resource('product', ProductController::class);
+
 Auth::routes();
+
+Route::middleware(['auth'])->group(function(){
+
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
