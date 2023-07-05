@@ -17,7 +17,6 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('cat_id');
             $table->unsignedBigInteger('prod_type_id');
             $table->unsignedBigInteger('brand_id');
-            $table->unsignedBigInteger('dim_id');
             $table->foreign('cat_id')->references('id')->on('categories');
             $table->foreign('prod_type_id')->references('id')->on('product_types');
             $table->foreign('brand_id')->references('id')->on('brands');
