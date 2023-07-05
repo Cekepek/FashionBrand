@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreign('cat_id')->references('id')->on('categories');
             $table->foreign('prod_type_id')->references('id')->on('product_types');
             $table->foreign('brand_id')->references('id')->on('brands');
-            $table->string('dimention', 200);
+            $table->string('dimension', 200);
             $table->id();
             $table->string('name', 200);
             $table->integer('price', 200);
