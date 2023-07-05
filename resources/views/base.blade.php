@@ -28,6 +28,9 @@
     <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 <style>
     .flex-container {
@@ -72,7 +75,23 @@
                                 <a href="{{ route('register') }}" class="">Register</a>
                             @endif
                     @else
-                        <p style="color:white">{{ Auth::user()->name }}</p>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </li>
                     @endguest
 
 
