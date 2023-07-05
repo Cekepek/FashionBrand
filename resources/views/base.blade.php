@@ -80,6 +80,12 @@
                             <span class="title">Home</span>
                         </a>
                     </li>
+                    <li class="start ">
+                        <a href="/#">
+                            <i class="icon-list"></i>
+                            <span class="title">Products</span>
+                        </a>
+                    </li>
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>
