@@ -29,6 +29,28 @@
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
+<style>
+    .flex-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: black;
+    }
+    .flex-log{
+        display: flex;
+        flex-direction: row;
+        margin: 4px;
+        margin-right: 50px;
+        font-size: 15px;
+
+
+    }
+    .margin-r{
+        margin-right: 40px;
+    }
+
+
+    </style>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 
@@ -38,11 +60,25 @@
         <!-- BEGIN TOP NAVIGATION BAR -->
         <div class="header-inner">
             <!-- BEGIN LOGO -->
-            <div class="page-logo">
-                <a href="index.html">
-                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" />
-                </a>
+            <div class="flex-container">
+                    <h4 style="color:aqua">Fashion Brand Tranquility</h4>
+                <div class="flex-log">
+                    @guest
+                            @if (Route::has('login'))
+                                <a class="nav-link margin-r" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="">Register</a>
+                            @endif
+                    @else
+                        <p style="color:white">{{ Auth::user()->name }}</p>
+                    @endguest
+
+
+                </div>
             </div>
+
             <!-- END LOGO -->
         </div>
         <!-- END TOP NAVIGATION BAR -->
