@@ -75,7 +75,7 @@
                         </form>
                     </li>
                     <li class="start ">
-                        <a href="/#">
+                        <a href="/test">
                             <i class="icon-home"></i>
                             <span class="title">Home</span>
                         </a>
