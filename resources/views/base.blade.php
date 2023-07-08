@@ -349,5 +349,10 @@
     <script src="{{ asset('assets/scripts/app.js') }}"></script>
     @yield("jQuery")
 
+    <script>
+        jQuery(document).ready(function() {
+           App.init(); // initlayout and core plugins
+        });
+    </script>
     <!-- END JAVASCRIPTS -->
 </body>
