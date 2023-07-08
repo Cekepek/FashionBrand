@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("categoryCreate");
     }
 
     /**
@@ -35,7 +35,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = Category::where("name", $request->name)->first();
+        if ($category) {
+            // ini kalo kategori sudah ada
+            return back()->withInput()->with('status', "category with the same name already exist!");
+        }
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route("categories.index")->with('status', "Category telah berhasil ditambahkan!");
     }
 
     /**
