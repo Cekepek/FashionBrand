@@ -20,6 +20,11 @@ class User extends Authenticatable
         'name', 'email', 'password', "role",
     ];
 
+    function transactions()
+    {
+        return $this->hasMany(Transaction::class, "user_id", "id");
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
