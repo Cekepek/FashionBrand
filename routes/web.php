@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('base');
 });
 
-Route::resource('product', ProductController::class);
+Route::resource('/product', ProductController::class);
 
 Auth::routes();
 

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+
+    function user()
+    {
+        return $this->belongsTo(User::class, "user_id", "id");
+    }
+
+    function products(){
+        return $this->belongsToMany(Product::class, "product_transaction", "transaction_id", "product_id", "id", "id")
+        ->withPivot("quantity", "price");
+    }
 }
