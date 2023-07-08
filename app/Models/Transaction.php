@@ -15,7 +15,7 @@ class Transaction extends Model
     }
 
     function products(){
-        return $this->belongsToMany(Product::class, "product_transaction", "transaction_id", "product_id", "id", "id")
+        return $this->belongsToMany(Product::class, "transaction_product", "transaction_id", "product_id", "id", "id")
         ->withPivot("quantity", "price");
     }
 }
