@@ -1,6 +1,5 @@
 @extends('base')
 @section('page-content')
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
     body {
         padding: 50px;
@@ -28,19 +27,19 @@
         <tr>
             <td>1</td>
             <td>2020-07-20 00:00:00</td>
-            <td><a href="*"><span>Lihat Rincian Pembelian</span></a></td>
+            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
 
         </tr>
         <tr>
             <td>1</td>
             <td>2020-07-20 00:00:00</td>
-            <td><a href="*"><span>Lihat Rincian Pembelian</span></a></td>
+            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
 
         </tr>
         <tr>
             <td>1</td>
             <td>2020-07-20 00:00:00</td>
-            <td><a href="*"><span>Lihat Rincian Pembelian</span></a></td>
+            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
 
         </tr>
     </tbody>

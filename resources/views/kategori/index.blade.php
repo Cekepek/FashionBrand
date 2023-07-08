@@ -1,7 +1,7 @@
 @extends('base')
 @section('page-content')
 <h1>
-    Daftar Produk
+    Daftar Category
 </h1>
 
 <table class="table">

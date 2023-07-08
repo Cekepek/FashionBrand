@@ -1,7 +1,7 @@
 @extends('base')
 @section('page-content')
 <h1>
-    Daftar Produk
+    Daftar Membership
 </h1>
 
 <table class="table">
@@ -19,7 +19,9 @@
         <td>{{ $user->id }}</td>
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
-        <td></td>
+        <td>
+          <a href="#" class="btn btn-warning btn-xs">Ubah</a>
+        </td>
       </tr>
     @endforeach
     </tbody>
