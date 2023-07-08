@@ -18,6 +18,28 @@ class ProductController extends Controller
         return view('product.index', ['prods' => $products]);
     }
 
+    function addcart(Product $product){
+        $cart = session("cart");
+        if(!$cart){
+            $cart = array();
+        }
+        if(!isset($cart[$product->id])){
+            $cart[$product->id] = [
+                "name" => $product->name,
+                "quantity" => 1,
+                "price" => $product->price,
+                "filename" => $product->filename,
+            ];
+        } else {
+            $cart[$product->id]["quantity"]++;
+        }
+        session()->put("cart", $cart);
+        return response()->json([
+            "status" => "oke",
+            "message" => "sukses menambahkan $product->name ke cart"
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +47,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view("productCreate");
     }
 
     /**
@@ -36,7 +58,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::where("name", $request->name)->first();
+        if ($product) {
+            // ini kalo kategori sudah ada
+            return back()->withInput()->with('status', "Product with the same name already exist!");
+        }
+        $product = new Product();
+        $product->name = $request->name;
+        $product->dimension = $request->dimension;
+        $product->price = $request->price;
+        $product->image = $request->image;
+        $product->save();
+        return redirect()->route("products.index")->with('status', "Product telah berhasil ditambahkan!");
     }
 
     /**
@@ -58,7 +91,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("productFormUpdate", compact("product"));
     }
 
     /**
@@ -68,9 +101,29 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Product $product)
     {
-        //
+        if ($product->name == $request->name) {
+            // ini kalo kategori sudah ada
+            $product->name = $request->name;
+            $product->dimension = $request->dimension;
+            $product->price = $request->price;
+            $product->image = $request->image;
+            $product->save();
+            return redirect()->route("products.index")->with('status', "Product telah berhasil di Update!");
+        } else {
+            $cek = Product::where("name", $request->name)->first();
+            if ($cek) {
+                return back()->withInput()->with('status', "Product with the same name already exist!");
+            } else {
+                $product->name = $request->name;
+                $product->dimension = $request->dimension;
+                $product->price = $request->price;
+                $product->image = $request->image;
+                $product->save();
+                return redirect()->route("products.index")->with('status', "Product telah berhasil di Update!");
+            }
+        }
     }
 
     /**
