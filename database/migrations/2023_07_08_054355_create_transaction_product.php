@@ -14,7 +14,8 @@ class CreateTransactionProduct extends Migration
     public function up()
     {
         Schema::create('transaction_product', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger("transaction_id");
+            $table->bigInteger("product_id");
             $table->timestamps();
         });
     }
