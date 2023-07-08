@@ -1,5 +1,5 @@
 @extends('base')
-@section('product')
+@section('page-content')
 <h1>
     Daftar Produk
 </h1>

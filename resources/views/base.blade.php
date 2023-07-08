@@ -313,17 +313,9 @@
                         </li>
                     </ul>
                 </div>
-                @yield('katalog_produk')
-
-
-
                 <!-- END PAGE HEADER-->
-
-
                 <!-- BEGIN PAGE CONTENT-->
-                @yield('test')
                 @yield('page-content')
-                @yield('product')
                 <!-- END PAGE CONTENT-->
             </div>
         </div>
