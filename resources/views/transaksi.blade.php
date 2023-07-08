@@ -21,7 +21,8 @@
         @foreach ($transaction as $t)
         <tr>
             <td>{{$t->id}}</td>
-            <td></td>
+            <td>{{$t->transaction_date}}</td>
+            <td><a href="#">Lihat Rincian Pembelian</a></td>
         </tr>
         @endforeach
         <tr>

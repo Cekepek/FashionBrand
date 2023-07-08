@@ -26,6 +26,7 @@ Route::get('/', function () {
 Route::resource('/product', ProductController::class);
 Route::resource('/category', CategoryController::class);
 Route::resource('/transaction', TransactionController::class);
+Route::get("/cart", [ProductController::class, "cart"]);
 
 
 Auth::routes();

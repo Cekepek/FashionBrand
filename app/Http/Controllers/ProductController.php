@@ -15,7 +15,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product.index', ['prods' => $products]);
+        return view('product.index', ['products' => $products]);
+    }
+
+    function cart()
+    {
+        $cart = session("cart");
+        return view('cart', compact("cart"));
     }
 
     function addcart(Product $product){

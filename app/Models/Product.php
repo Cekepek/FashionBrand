@@ -14,6 +14,16 @@ class Product extends Model
         ->withPivot("quantity", "price");
     }
 
+    function brands()
+    {
+        return $this->belongsTo(Brand::class, "brand_id", "id");
+    }
+
+    function product_types()
+    {
+        return $this->belongsTo(Product_type::class, "product_type", "id");
+    }
+
     function categories(){
         return $this->belongsToMany(Category::class, "category_product", "product_id", "category_id", "id", "id");
     }

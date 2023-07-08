@@ -10,7 +10,7 @@ class TransactionController extends Controller
     //
     function index(){
         $transaction = Transaction::get();
-        return view("transaction", compact("transaction"));
+        return view("transaksi", compact("transaction"));
     }
 
     public function show(Transaction $transaction)
