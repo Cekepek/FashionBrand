@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class MemberController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('member.index', ['users' => $users]);
+        $data = User::all();
+        return view('accessControl', ['users' => $data]);
     }
 
     /**
@@ -68,16 +68,12 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $user = User::where("id", $id)->first();
-        if($user->member == "true"){
-            $user->member = "false";
-        } else {
-            $user->member = "true";
-        }
-        $user->save();
-        return redirect()->route("member.index");
+        $objCategory = User::find($id);
+        $objCategory->role = $request->get("role");
+        $objCategory->save();
+        return redirect()->route('user.index')->with('status', 'User Role is already up-to-date');
     }
 
     /**
@@ -89,5 +85,25 @@ class MemberController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getAccessControlEdit(Request $request){
+        $id = $request->get('id');
+        $data = User::find($id);
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' => view('accessControlEdit', compact('data'))->render()
+        ));
+    }
+
+    public function saveDataTD(Request $request){
+        $id = $request->get('id');
+        $data = User::find($id);
+        $data->role = $request->get('role');
+        $data->save();
+        return response()->json(array(
+            'status' => 'oke',
+            'msg' =>'Role is up-to-date'
+        ), 200);
     }
 }

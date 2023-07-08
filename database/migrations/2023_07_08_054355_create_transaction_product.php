@@ -20,7 +20,6 @@ class CreateTransactionProduct extends Migration
             $table->foreign("product_id")->references("id")->on("products");
             $table->integer("quantity");
             $table->double("subtotal", 18, 2);
-            $table->double("total", 18, 2);
             $table->timestamps();
         });
     }

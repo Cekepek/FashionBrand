@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\brand;
+use App\Models\Category;
 use App\Models\Product;
+use App\Models\Product_type;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -21,6 +24,7 @@ class ProductController extends Controller
     function cart()
     {
         $cart = session("cart");
+        // return dd($cart);
         return view('cart', compact("cart"));
     }
 
@@ -34,7 +38,7 @@ class ProductController extends Controller
                 "name" => $product->name,
                 "quantity" => 1,
                 "price" => $product->price,
-                "filename" => $product->filename,
+                "image" => $product->image,
             ];
         } else {
             $cart[$product->id]["quantity"]++;
@@ -53,8 +57,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view("productCreate");
-    }
+        $brands = brand::all();
+        $cats = Category::all();
+        $types = Product_type::all();
+        return view('product.create', ['brands' => $brands,'cats' => $cats, 'types' =>$types]);
+}
 
     /**
      * Store a newly created resource in storage.
@@ -65,17 +72,37 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::where("name", $request->name)->first();
+
         if ($product) {
             // ini kalo kategori sudah ada
             return back()->withInput()->with('status', "Product with the same name already exist!");
         }
+
+        $file = $request->file('image');
+        $imgfolders = 'images';
+        $imgfile = time()."_".$file->getClientOriginalName();
+        $file->move($imgfolders,$imgfile);
+
         $product = new Product();
         $product->name = $request->name;
         $product->dimension = $request->dimension;
         $product->price = $request->price;
-        $product->image = $request->image;
+        $product->brand_id = $request->brand;
+        $product->product_type = $request->productType;
+        $product->image = $imgfile;
         $product->save();
-        return redirect()->route("products.index")->with('status', "Product telah berhasil ditambahkan!");
+        $cat_id = $request->get('cat');
+        $product->categories()->attach($cat_id);
+        // $count = Category::count();
+        // for($i = 1; $i<=$count;$i++) {
+        //     $cat = "cat$i";
+        //     if(isset($request->cat)){
+        //         $product->categories()->attach($request->$cat);
+        //     }
+        // }
+        $product->save();
+
+        return redirect()->route("product.index")->with('status', "Product telah berhasil ditambahkan!");
     }
 
     /**

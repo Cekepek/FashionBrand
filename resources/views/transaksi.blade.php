@@ -21,27 +21,9 @@
         <tr>
             <td>{{$t->id}}</td>
             <td>{{$t->transaction_date}}</td>
-            <td><a href="#">Lihat Rincian Pembelian</a></td>
+            <td><a href="{{route('transaction.show', $t->id)}}">Lihat Rincian Pembelian</a></td>
         </tr>
         @endforeach
-        <tr>
-            <td>1</td>
-            <td>2020-07-20 00:00:00</td>
-            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
-
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2020-07-20 00:00:00</td>
-            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
-
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>2020-07-20 00:00:00</td>
-            <td><a href="#"><span>Lihat Rincian Pembelian</span></a></td>
-
-        </tr>
     </tbody>
 
 </table>

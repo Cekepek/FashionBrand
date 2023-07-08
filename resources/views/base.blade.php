@@ -10,9 +10,11 @@
     <meta content="" name="author" />
     <meta name="MobileOptimized" content="320">
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
+        type="text/css" />
     <link href="{{ asset('assets/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet"
+        type="text/css" />
     <link href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
@@ -66,77 +68,81 @@
     padding: 2px 16px;
     } */
 
-        .a-styling{
-            background-color: white;
-            color: black;
-            border: 2px solid green;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .a-styling:hover{
-            background-color: green;
-            color: white;
-        }
-        .flex-card{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            margin: 20px;
-            margin-right: 20px;
-        }
+    .a-styling {
+        background-color: white;
+        color: black;
+        border: 2px solid green;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
 
-        .card {
-            width: 250px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .a-styling:hover {
+        background-color: green;
+        color: white;
+    }
 
-        .card img {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
+    .flex-card {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 20px;
+        margin-right: 20px;
+    }
 
-        .card h3 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
+    .card {
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        .card p {
-            font-size: 14px;
-            color: #666;
-        }
+    .card img {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
 
-        .kat-sty{
-            display: flex;
-            flex-direction: row;
-        }
-        .tag {
-            display: inline-block;
-            border-radius: 3px;
-            padding: .2em .5em .3em;
-            border-radius: 2px;
-            background: var(--tag-bg);
-            color: var(--text-color);
-            font-weight: 600;
-            margin: .25em .1em
-        }
-        .tag-sm {
-            font-size: 0.9em;
-            display: inline-block;
-            letter-spacing: .15ch;
-            font-weight: 400;
-        }
-        .tag-kat-functions {
-            background: blue;
-            color: #fff
-        }
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
 
-    </style>
+    .card p {
+        font-size: 14px;
+        color: #666;
+    }
+
+    .kat-sty {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tag {
+        display: inline-block;
+        border-radius: 3px;
+        padding: .2em .5em .3em;
+        border-radius: 2px;
+        background: var(--tag-bg);
+        color: var(--text-color);
+        font-weight: 600;
+        margin: .25em .1em
+    }
+
+    .tag-sm {
+        font-size: 0.9em;
+        display: inline-block;
+        letter-spacing: .15ch;
+        font-weight: 400;
+    }
+
+    .tag-kat-functions {
+        background: blue;
+        color: #fff
+    }
+</style>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 
@@ -150,31 +156,32 @@
                 <h4 style="color:aqua">Fashion Brand Tranquility</h4>
                 <div class="flex-log">
                     @guest
-                    @if (Route::has('login'))
-                    <a class="nav-link margin-r" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @endif
+                        @if (Route::has('login'))
+                            <a class="nav-link margin-r" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @endif
 
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="">Register</a>
-                    @endif
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="">Register</a>
+                        @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    {{ Auth::user()->name }}
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                                data-close-others="true">
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </ul>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
                     @endguest
 
 
@@ -207,22 +214,61 @@
                         <form class="search-form" role="form" action="index.html" method="get">
                             <div class="input-icon right">
                                 <i class="fa fa-search"></i>
-                                <input type="text" class="form-control input-sm" name="query" placeholder="Search...">
+                                <input type="text" class="form-control input-sm" name="query"
+                                    placeholder="Search...">
                             </div>
                         </form>
                     </li>
                     <li class="start ">
-                        <a href="/test">
+                        <a href="/product">
                             <i class="icon-home"></i>
                             <span class="title">Home</span>
                         </a>
                     </li>
-                    <li class="start ">
+                    {{-- <li class="start ">
                         <a href="/product">
                             <i class="icon-list"></i>
                             <span class="title">Products</span>
                         </a>
+                    </li> --}}
+                    <li class="start ">
+                        <a href="/category">
+                            <i class="icon-list"></i>
+                            <span class="title">Categories</span>
+                        </a>
                     </li>
+                    <li class="start ">
+                        <a href="/transaction">
+                            <i class="icon-book-open"></i>
+                            <span class="title">Transactions</span>
+                        </a>
+                    </li>
+                    @can('akses')
+                        <li class="start ">
+                            <a href="/member">
+                                <i class="icon-user"></i>
+                                <span class="title">Member</span>
+                            </a>
+                        </li>
+                    @endcan
+                    @can('owner')
+                        <li class="start ">
+                            <a href="/user">
+                                <i class="icon-envelope-open"></i>
+                                <span class="title">Akses Control</span>
+                            </a>
+                        </li>
+                    @endcan
+                    <div>
+                        <hr style="border-top: 1px solid rgb(201, 21, 21);">
+                    </div>
+                    <li class="start ">
+                        <a href="/cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="title">Cart</span>
+                        </a>
+                    </li>
+
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>
@@ -232,7 +278,7 @@
         <div class="page-content-wrapper">
             <div class="page-content">
 
-                @yield("modal")
+                @yield('modal')
 
                 <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
                 <!-- BEGIN STYLE CUSTOMIZER -->
@@ -245,7 +291,8 @@
                             <span>
                                 Theme Color </span>
                             <ul>
-                                <li class="color-black current color-default tooltips" data-style="default" data-original-title="Default">
+                                <li class="color-black current color-default tooltips" data-style="default"
+                                    data-original-title="Default">
                                 </li>
                                 <li class="color-grey tooltips" data-style="grey" data-original-title="Grey">
                                 </li>
@@ -306,11 +353,11 @@
                 </h3>
                 <div class="page-bar">
                     <ul class="page-breadcrumb">
-                        <li>
+                        {{-- <li>
                             <i class="fa fa-home"></i>
                             <a href="/">Home</a>
                             <i class="fa fa-angle-right"></i>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
                 <!-- END PAGE HEADER-->
@@ -341,17 +388,18 @@
     <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
     <script src="{{ asset('assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}"
+        type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/uniform/jquery.uniform.min.js') }}" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     <script src="{{ asset('assets/scripts/app.js') }}"></script>
-    @yield("jQuery")
+    @yield('jQuery')
 
     <script>
         jQuery(document).ready(function() {
-           App.init(); // initlayout and core plugins
+            App.init(); // initlayout and core plugins
         });
     </script>
     <!-- END JAVASCRIPTS -->

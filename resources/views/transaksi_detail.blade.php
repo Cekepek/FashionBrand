@@ -33,80 +33,21 @@
 </head>
 <body>
     <div class="checkout-page">
-        <h1>Detail Transaksi</h1>
+        <h1>Invoice</h1>
         <br>
         <br>
         <div class="my-2">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <h4>Barang</h4>
-                </div>
-                <div>
-                    <h4>Harga</h4>
-                </div>
-                <div>
-                    <h4>Quantitas</h4>
-                </div>
-                <div>
-                    <h4>Total</h4>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <p>Jaket</p>
-                </div>
-                <div>
-                    <p>Rp100.000</p>
-                </div>
-                <div>
-                    <p>10</p>
-                </div>
-                <div>
-                    <p>Rp1.000.000</p>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <p>Jaket</p>
-                </div>
-                <div>
-                    <p>Rp100.000</p>
-                </div>
-                <div>
-                    <p>10</p>
-                </div>
-                <div>
-                    <p>Rp1.000.000</p>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <p>Jaket</p>
-                </div>
-                <div>
-                    <p>Rp100.000</p>
-                </div>
-                <div>
-                    <p>10</p>
-                </div>
-                <div>
-                    <p>Rp1.000.000</p>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <p>Jaket</p>
-                </div>
-                <div>
-                    <p>Rp100.000</p>
-                </div>
-                <div>
-                    <p>10</p>
-                </div>
-                <div>
-                    <p>Rp1.000.000</p>
-                </div>
-            </div>Rp
+            <table class="table">
+            @foreach ($transaction->products as $p)
+                    <tr>
+                        <td>{{$p->name}}</td>
+                        <td>Rp {{$p->price}}</td>
+                        <td>{{$p->pivot->quantity}} x</td>
+                    </tr>
+
+
+                @endforeach
+            </table>
         </div>
         <div>
             <div class="d-flex justify-content-between">
@@ -114,21 +55,26 @@
                     <p>Subtotal</p>
                 </div>
                 <div class="mt-5">
-                    <p>Rp3.000.000</p>
+                    <p>Rp {{$transaction->subtotal}}</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div class="mt-5">
+                    <p>total (subtotal + pajak 11%)</p>
+                </div>
+                <div class="mt-5">
+                    <p>Rp {{$transaction->total}}</p>
                 </div>
             </div>
         </div>
         <div class="form-group">
             <label for="name">Name:</label>
-            <p class="text-secondary">ALLAN MATEUS</p>
+            <p class="text-secondary">{{$transaction->users->name}}</p>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <p class="text-secondary">evan@gmail.com</p>
+            <p class="text-secondary">{{$transaction->users->email}}</p>
         </div>
-        {{-- <div class="form-group">
-            <button type="submit" class="btn btn-primary">Place Order</button>
-        </div> --}}
     </div>
 
     {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
