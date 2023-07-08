@@ -15,7 +15,7 @@ class CreateTransactionProduct extends Migration
     {
         Schema::create('transaction_product', function (Blueprint $table) {
             $table->unsignedBigInteger("transaction_id");
-            $table->foreign("transaction_id")->references("id")->on("transaction");
+            $table->foreign("transaction_id")->references("id")->on("transactions");
             $table->unsignedBigInteger("product_id");
             $table->foreign("product_id")->references("id")->on("products");
             $table->integer("quantity");
