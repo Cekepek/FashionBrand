@@ -51,7 +51,92 @@
     .margin-r {
         margin-right: 40px;
     }
-</style>
+
+    /* .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 40%;
+    }
+
+    .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .container {
+    padding: 2px 16px;
+    } */
+
+        .a-styling{
+            background-color: white;
+            color: black;
+            border: 2px solid green;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .a-styling:hover{
+            background-color: green;
+            color: white;
+        }
+        .flex-card{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 20px;
+            margin-right: 20px;
+        }
+
+        .card {
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .kat-sty{
+            display: flex;
+            flex-direction: row;
+        }
+        .tag {
+            display: inline-block;
+            border-radius: 3px;
+            padding: .2em .5em .3em;
+            border-radius: 2px;
+            background: var(--tag-bg);
+            color: var(--text-color);
+            font-weight: 600;
+            margin: .25em .1em
+        }
+        .tag-sm {
+            font-size: 0.9em;
+            display: inline-block;
+            letter-spacing: .15ch;
+            font-weight: 400;
+        }
+        .tag-kat-functions {
+            background: blue;
+            color: #fff
+        }
+
+    </style>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 
@@ -146,6 +231,7 @@
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
             <div class="page-content">
+
                 @yield("modal")
 
                 <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
@@ -227,6 +313,10 @@
                         </li>
                     </ul>
                 </div>
+                @yield('katalog_produk')
+
+
+
                 <!-- END PAGE HEADER-->
 
 
